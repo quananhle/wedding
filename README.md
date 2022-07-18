@@ -14,6 +14,7 @@ _See [wedding.rampatra.com](http://wedding.rampatra.com/) for a demo. Use invite
    [GitHub Pages](https://pages.github.com/) to host and Google sheets (with the help of Google scripts) to store RSVP
    data.
 
+<<<<<<< HEAD
 # Getting Started
 1. `$ cd wedding-website` - go inside the project directory
 2. `$ npm` - if error message '''The term 'npm' is not recognized as the name of a cmdlet, function, script file''', then donwload NodeJS, install, add ```C:\Program Files\nodejs\``` to PATH in user variables, and restart Visual Studio Code
@@ -38,3 +39,5 @@ Firstly, a big thanks 🙏🏻 for the overwhelming response on [HackerNews](htt
 <a href="https://www.buymeacoffee.com/rampatra" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
 
 _P.S. For any queries or concerns, you can reach out to me on [Twitter](https://twitter.com/ram__patra). I'll try my best to help 🙏._
+=======
+>>>>>>> 858d0f879576ebdd5ed76978b4bda6d438e1e5ab

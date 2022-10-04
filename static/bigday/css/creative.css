@@ -537,17 +537,3 @@ body {
     background-color: #222;
     padding-bottom: 30px;
 }
-
-#us-map {
-    position: relative;
-    width: 95%;
-    min-height: auto;
-    height: 95%;
-    text-align: center;
-    color: rgb(28,56,81);
-    background-position: center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
-}

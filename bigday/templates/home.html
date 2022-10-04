@@ -157,11 +157,6 @@
     {% endcomment %}
 
     {% include 'partials/journey.html' %}
-
-    <img src="{% static 'bigday/images/US-Map.png' %}" id="us-map" alt="">
-    {% comment %}
-    {% include 'partials/us-map.html' %}
-    {% endcomment %}
     <div class="container">
         <div class="row">
             <div class="col-sm-12 text-center content">
@@ -170,6 +165,11 @@
             </div>
         </div>
     </div>
+    <img src="{% static 'bigday/images/US-Map.png' %}" id="us-map" alt="">
+    {% comment %}
+    {% include 'partials/us-map.html' %}
+    {% endcomment %}
+
 
     {% endblock %}
     <style>
@@ -181,7 +181,10 @@
             color: gold;
             background: navy;
         }
-    </style>
+        /* html {
+            scroll-behavior: smooth;
+        }     */
+        </style>
 {% endblock %}
 
 

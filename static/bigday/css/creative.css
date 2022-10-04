@@ -540,8 +540,9 @@ body {
 
 #us-map {
     position: relative;
-    width: 100%;
+    width: 95%;
     min-height: auto;
+    height: 95%;
     text-align: center;
     color: rgb(28,56,81);
     background-position: center;

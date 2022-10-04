@@ -1,40 +1,155 @@
-# Wedding Website
-A beautiful, feature rich, device friendly wedding website.  
-_See [wedding.rampatra.com](http://wedding.rampatra.com/) for a demo. Use invite code `271117` to RSVP._
+```{Bash}
+$ git add .
+$ git commit -m "Commit code"
+$ git pull
+$ git push
+```
 
-# Highlights
-1. Slick and fully __responsive__ design.
-2. __RSVP feature__ which directly uploads data to a Google sheet.
-3. __Receive email alerts__ when someone RSVPs.
-4. __Add to Calendar__ feature which supports four different calendars.
-5. __Book Uber__ button lets guests book a cab to the venue with just a single tap.
-6. A nice __Youtube video__ showing your venue.
-7. __Google Map__ showing your venue's location.
-8. Start and run the website __completely free__. No hosting, backend server, or database required as you can use
-   [GitHub Pages](https://pages.github.com/) to host and Google sheets (with the help of Google scripts) to store RSVP
-   data.
+```
+Username
+Password = Personal Access Token
+```
 
-# Getting Started
-1. `$ cd wedding-website` - go inside the project directory
-2. `$ npm` - if error message '''The term 'npm' is not recognized as the name of a cmdlet, function, script file''', then donwload NodeJS, install, add ```C:\Program Files\nodejs\``` to PATH in user variables, and restart Visual Studio Code
-3. `$ npm install` - install dependencies _(optional)_
-4. `$ gulp` - compile sass to css, minify js, etc. _(optional)_
-5. That's it, open `index.html` on your browser by just double-clicking on the file.
+Deploy an existing Django project on PythonAnywhere
+https://help.pythonanywhere.com/pages/DeployExistingDjangoProject/
 
-# Documentation
-I have written a 
-[blog post describing all the features of this wedding website](https://blog.rampatra.com/wedding-website) and how to
-customize each of them according to your needs.
+How to set up an HTTPS/SSL certificate for a custom domain
+https://help.pythonanywhere.com/pages/HTTPSSetup
 
-# About Me
-Hello, my name is Ram. I am a Lead Software Engineer at [Mastercard R&D Labs](https://www.mastercard.com/). I enjoy making teeny tiny applications in
-my leisure time and this is one of them. Now that my wedding is over, I am open-sourcing the project. Hope you like it!
+Forcing HTTPS
+https://help.pythonanywhere.com/pages/ForcingHTTPS
 
-Lastly, if you use a Mac then you may also love [Presentify](https://presentify.compzets.com/). Give it a whirl and let me know your thoughts.
+<!-- # A Django Wedding Website and Invitation + Guest Management System
 
-# Contribute
-Firstly, a big thanks 🙏🏻 for the overwhelming response on [HackerNews](https://news.ycombinator.com/item?id=18556787) and [Reddit](https://www.reddit.com/r/opensource/comments/a1bx4h/i_am_open_sourcing_my_wedding_website_on_my_first/). I would be more than happy for [PRs](https://help.github.com/articles/about-pull-requests/) or [sponsors](https://www.paypal.me/iamrampatra).
+Live site examples:
 
-<a href="https://www.buymeacoffee.com/rampatra" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+- [Standard Wedding Website](http://rowena-and.coryzue.com/) -->
+<!-- - [Random Save The Date Email](http://rowena-and.coryzue.com/save-the-date/) (refresh for more examples)
+- [Sample Personal Invitation Page](http://rowena-and.coryzue.com/invite/b2ad24ec5dbb4694a36ef4ab616264e0/) -->
 
-_P.S. For any queries or concerns, you can reach out to me on [Twitter](https://twitter.com/ram__patra). I'll try my best to help 🙏._
+<!-- There is also [a longer writeup on this project here](https://www.placecard.me/blog/django-wedding-website/).
+ -->
+## What's included?
+
+This includes everything we did for our own wedding:
+
+- A responsive, single-page traditional wedding website
+- A complete guest management application
+- Email framework for sending save the dates
+- Email framework for invitations and built in RSVP system
+- Guest dashboard
+
+More details on these below.
+
+### The "Standard" Wedding Website
+
+The standard wedding website is a responsive, single-page, twitter bootstrap-based site (using a modified version of
+[this theme](https://blackrockdigital.github.io/startbootstrap-creative/)).
+
+It is completely customizable to your needs and the content is laid out in standard django templates. By default it includes:
+
+- A "hero" splash screen for a photo
+- A mobile-friendly top nav with scrollspy
+- A photo/hover navigation pane
+- Configurable content sections for every aspect of your site that you want
+- A set of different styles you can use for different sections
+
+### Guest management
+
+The guest management functionality acts as a central place for you to manage your entire guest list.
+It includes two data models - the `Party` and the `Guest`.
+
+#### Party model
+
+The `Party` model allows you to group your guests together for things like sending a single invitation to a couple.
+You can also add parties that you're not sure you're going to invite using the `is_invited` field, which works great for sending tiered invitations.
+There's also a field to track whether the party is invited to the rehearsal dinner.
+
+#### Guest model
+
+The `Guest` model contains all of your individual guests.
+In addition to standard name/email it has fields to represent whether the guest is a child (for kids meals/pricing differences),
+and, after sending invitations, marking whether the guest is attending and what meal they are having.
+
+#### Excel import/export
+
+The guest list can be imported and exported via excel (csv).
+This allows you to build your guest list in Excel and get it into the system in a single step.
+It also lets you export the data to share with others or for whatever else you need.
+
+See the `import_guests` management command for more details and `bigday/guests/tests/data` for sample file formats.
+
+### Save the Dates
+
+The app comes with a built-in cross-client and mobile-friendly email template for save the dates (see `save_the_date.html`).
+
+You can create multiple save the dates and send them out either randomly or by `Party` type (useful if you want to send formal
+invitations to some people and more playful ones to others).
+
+See `save_the_date.py` and `SAVE_THE_DATE_CONTEXT_MAP` for customizing your save the dates.
+
+### Invitations and RSVPs
+
+The app also comes with a built-in invitation system.
+The template is similar to the save-the-date template, however in addition to the standard invitation content it includes:
+
+- A built in tracking pixel to know whether someone has opened the email or not
+- Unique invitation URLs for each party with pre-populated guest names ([example](http://rownena-and.coryzue.com/invite/b2ad24ec5dbb4694a36ef4ab616264e0/))
+- Online RSVP system with meal selection and validation
+
+### Guest dashboard
+
+After your invitations go out you can use the guest dashboard to see how many people have RSVP'd, everyone who still
+has to respond, people who haven't selected a meal, etc.
+It's a great way of tracking your big picture numbers in terms of how many guests to expect.
+
+Just access `/dashboard/` from an account with admin access. Your other guests won't be able to see it.
+
+### Other details
+
+You can easily hook up Google analytics by editing the tracking ID in `google-analytics.html`.
+
+
+## Installation
+
+This is developed for Python 3 and Django 2.2.
+
+It's recommended that you setup a virtualenv before development.
+
+Then just install requirements, migrate, and runserver to get started:
+
+```bash
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py runserver
+```
+
+## Customization
+
+I recommend forking this project and just manually modifying it by hand to replace everything with what you want.
+Searching for the text on a page in the repository is a great way to find where something lives.
+
+### Sending email
+
+This application uses Django's email framework for sending mail. 
+You need to modify the `EMAIL_HOST`, `EMAIL_PORT` and other associated variables in `settings.py` in order
+to hook it into a real server.
+
+This [thread on stack overflow](https://stackoverflow.com/questions/6367014/how-to-send-email-via-django)
+is a good starting place for learning how to connect to a real mail service.
+
+### Email addresses
+
+To customize the email addresses, see the `DEFAULT_WEDDING_FROM_EMAIL` and
+`DEFAULT_WEDDING_REPLY_EMAIL` variables in `settings.py`.
+
+<!-- 
+### Other customizations
+
+If you want to use this project for your wedding but need help getting started just [get in touch](http://www.coryzue.com/contact/) or make an issue
+for anything you encounter and I'm happy to help.
+
+I haven't built out more complete customization docs yet because I wasn't sure anyone would be interested in this,
+but will add to these instructions whenever I get questions!
+
+-Cory -->

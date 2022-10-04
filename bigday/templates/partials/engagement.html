@@ -36,13 +36,57 @@
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade
     your browser</a> to improve your experience.</p>
 <![endif]-->
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top" style="background-color: darkslategray">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="{% url 'home' %}" style="color: gold;">Quan & Thu's Big Day</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right" >
+                    <li>
+                        <a class="page-scroll" href="{% url 'home' %}" style="color: white;">Home</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#where-to-stay" style="color: white;">Where To Stay</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#eat-n-drink" style="color: white;">Eat and Drink</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#things-to-do" style="color: white;">Things To Do</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#angiang" style="color: white;">An Giang</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     <section id="eng-pics" class="section-padding" style="background-color: aliceblue;">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <h3 class="header">Engagement Pics</h3>
+                    <h3 class="header" href="{% url 'home' %}">
+                        <img src="{% static 'save-the-date/images/wedding-arch.png' %}" style="height: 3%; width: 3%" alt=""/>
+                        Engagement Pic
+                        <img src="{% static 'save-the-date/images/wine.png' %}" style="height: 3%; width: 3%" alt=""/>
+                    </h3>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <img src="{% static 'save-the-date/images/couple.png' %}" style="height: 5%; width: 5%;" alt=""/>
+                </div>
+            </div>
+            <br>
             <div class="row">
                 <div class="col-md-2">
                     <a class="fancybox" rel="group" href="{% static 'bigday/images/engagement/Amazon-Seattle-WA.jpg' %}">

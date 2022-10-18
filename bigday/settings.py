@@ -158,6 +158,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
 # Set a less restrictive referrer policy such as "no-referrer-when-downgrade" for Youtube video player
-# SECURE_REFERRER_POLICY = "no-referrer-when-downgrade"
-SECURE_REFERRER_POLICY = "strict-origin-when-cross-origin"
+SECURE_REFERRER_POLICY = "no-referrer-when-downgrade"
+# SECURE_REFERRER_POLICY = "strict-origin-when-cross-origin"
 
